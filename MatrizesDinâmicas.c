@@ -23,51 +23,56 @@ int** preenchimento(int** matriz, int N); /* Preenche uma matriz quadrada de lad
 
 int main()
 {
-	system("clear");
-
-	printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]\n   Difícil - [3]\n\n   ");
-
-	int dificuldade = 0, lado;
-
-	scanf("%i", &dificuldade);
-	fflush(stdin);
-	printf("\n");
-
-	while((dificuldade < 1) || (dificuldade > 3))
+	while(0 == 0)
 	{
 		system("clear");
 
-		printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]      Selecione uma dificuldade válida!\n   Difícil - [3]\n\n   ");
+		printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]\n   Difícil - [3]\n\n   ");
+
+		int dificuldade = 0, lado;
 
 		scanf("%i", &dificuldade);
+		fflush(stdin);
 		printf("\n");
-	}
 
-	lado = 2*(1 + dificuldade);
+		while((dificuldade < 1) || (dificuldade > 3))
+		{
+			system("clear");
+
+			printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]      Selecione uma dificuldade válida!\n   Difícil - [3]\n\n   ");
+
+			scanf("%i", &dificuldade);
+			printf("\n");
+		}
+
+		lado = 2*(1 + dificuldade);
  	
- 	system("clear");
+ 		system("clear");
 
- 	printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]\n   Difícil - [3]\n\n");
+ 		printf("→ Bem vindo(a) ao jogo da memória, selecione uma dificuldade:\n   Fácil   - [1]\n   Médio   - [2]\n   Difícil - [3]\n\n");
 
-	printf("   Dificuldade escolhida: [%i] → Tabuleiro: [%i×%i]\n\n   Pressione ENTER para continuar...\n", dificuldade, lado, lado);
+		printf("   Dificuldade escolhida: [%i] → Tabuleiro: [%i×%i]\n\n   Pressione ENTER para continuar...\n", dificuldade, lado, lado);
 
-	char buffer = getchar();
+		char buffer = getchar();
 
-	while(getchar() != buffer);
+		while(getchar() != buffer);
 
-	system("clear");
-
-
-
-
-
-	jogo(dificuldade);
+		system("clear");
 
 
 
 
 
-	/*system("clear");*/
+		jogo(dificuldade);
+
+
+
+
+
+		printf("\n\n\nPressione ENTER para jogar novamente");
+
+		getchar();
+	}
 
 	return 0;
 }
@@ -127,6 +132,7 @@ void jogo(int D)
 
 		if((marcador[l1][c1] == -1) || (marcador[l2][c2] == -1))
 		{
+			printf("\n   Voce escolheu (%i, %i) e (%i, %i)\n", l1 + 1, c1 + 1, l2 + 1, c2 + 1);
 			amarelo();
 			printf("\n   Você já escolheu uma dessas cartas! Pontuação: %.2f\n", pontos);
 			resetcolor();
@@ -240,12 +246,12 @@ void mostrar(int** matriz, int L, int C, int** marcador)
 			if(marcador[l][c] == -1)
 				amarelo();
 			if(c == 0)
-				printf("\t         ");
+				printf("         ");
 
 			if(matriz[l][c] < 10)
-				printf("\t0");
+				printf("0");
 
-			printf("\t%i ", matriz[l][c]); /* Ajustar distância horizontal */
+			printf("%i ", matriz[l][c]); /* Ajustar distância horizontal */
 
 
 			if(c == (C - 1))
@@ -323,28 +329,3 @@ void resetcolor()
 {
 	printf("\033[0m");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*void delay(int segundos) // Reloginho
-{
-  
-    long int tempo_inicial = time(NULL);
-  
-    while (time(NULL) < (tempo_inicial + (long int)segundos))
-    {
-    }
-
-}*/
